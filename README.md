@@ -111,7 +111,7 @@ composeApp/
 |---|------------------------------|
 | **Nama** | Pradana Figo Ariasya         |
 | **NIM** | 123140063                    |
-| **Kelas** | Pengembangan Aplikasi Mobile |
+| **Kelas** | Pengembangan Aplikasi Mobile RB|
 | **Institusi** | Institut Teknologi Sumatera  |
 
 ---
