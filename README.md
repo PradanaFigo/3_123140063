@@ -16,7 +16,7 @@ My Profile App adalah aplikasi multiplatform yang dibangun menggunakan **Kotlin*
 
 | Desktop |
 |---------|
-| *(screenshot Desktop)* |
+| <img width="868" height="988" alt="image" src="https://github.com/user-attachments/assets/f3c157a1-5707-4327-8830-ef2d15599ffe" />|
 
 ---
 
