@@ -55,43 +55,31 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 
-// ============================================================
-// WARNA TEMA — Header abu-abu, bawah putih bersih
-// ============================================================
 object AppColors {
-    // Header: dominan abu-abu
     val HeaderTop        = Color(0xFF8D8D8D)   // abu medium atas
     val HeaderBottom     = Color(0xFF5A5A5A)   // abu gelap bawah
 
-    // Background & Surface
     val Background       = Color(0xFFF5F5F5)
     val Surface          = Color(0xFFFFFFFF)
     val SurfaceDim       = Color(0xFFEEEEEE)
 
-    // Teks
     val TextPrimary      = Color(0xFF212121)
     val TextSecondary    = Color(0xFF757575)
     val TextOnDark       = Color(0xFFFFFFFF)
     val TextOnDarkMuted  = Color(0xFFE0E0E0)
 
-    // Aksen untuk icon (warna-warni supaya kartu di bawah tetap menarik)
     val IconEmail        = Color(0xFF4CAF50)
     val IconPhone        = Color(0xFF2196F3)
     val IconLocation     = Color(0xFFFF5722)
     val IconWebsite      = Color(0xFF9C27B0)
     val IconSkill        = Color(0xFFFF6584)
 
-    // Tombol Follow
     val BtnActive        = Color(0xFF616161)   // abu saat following
     val BtnDefault       = Color(0xFF757575)   // abu normal
 
-    // Divider
     val DividerColor     = Color(0xFFEEEEEE)
 }
 
-// ============================================================
-// DATA CLASS
-// ============================================================
 data class ProfileData(
     val name: String,
     val title: String,
@@ -108,10 +96,6 @@ data class SkillInfo(
     val value: String
 )
 
-// ============================================================
-// COMPOSABLE 1: ProfileHeader
-// Header dominan abu-abu dengan foto circular
-// ============================================================
 @Composable
 fun ProfileHeader(
     name: String,
@@ -135,7 +119,6 @@ fun ProfileHeader(
                 .padding(top = 44.dp, start = 24.dp, end = 24.dp),
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            // Foto profil circular dengan ring putih
             Box(
                 contentAlignment = Alignment.Center,
                 modifier = Modifier
@@ -160,7 +143,6 @@ fun ProfileHeader(
 
             Spacer(modifier = Modifier.height(18.dp))
 
-            // Nama
             Text(
                 text = name,
                 fontSize = 24.sp,
@@ -171,7 +153,6 @@ fun ProfileHeader(
 
             Spacer(modifier = Modifier.height(6.dp))
 
-            // Title dalam pill
             Box(
                 modifier = Modifier
                     .clip(RoundedCornerShape(20.dp))
@@ -188,7 +169,6 @@ fun ProfileHeader(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Garis tipis
             Box(
                 modifier = Modifier
                     .width(36.dp)
@@ -198,7 +178,6 @@ fun ProfileHeader(
 
             Spacer(modifier = Modifier.height(14.dp))
 
-            // Bio
             Text(
                 text = bio,
                 fontSize = 13.sp,
@@ -211,10 +190,6 @@ fun ProfileHeader(
     }
 }
 
-// ============================================================
-// COMPOSABLE 2: StatItem
-// Angka statistik reusable
-// ============================================================
 @Composable
 fun StatItem(
     value: String,
@@ -240,10 +215,6 @@ fun StatItem(
     }
 }
 
-// ============================================================
-// COMPOSABLE 3: InfoItem
-// Satu baris info: icon warna-warni + label + value
-// ============================================================
 @Composable
 fun InfoItem(
     icon: ImageVector,
@@ -258,7 +229,6 @@ fun InfoItem(
             .padding(vertical = 10.dp, horizontal = 4.dp),
         verticalAlignment = Alignment.CenterVertically
     ) {
-        // Icon lingkaran berwarna
         Box(
             contentAlignment = Alignment.Center,
             modifier = Modifier
@@ -308,10 +278,6 @@ fun InfoItem(
     )
 }
 
-// ============================================================
-// COMPOSABLE 4: ProfileCard
-// Card container dengan judul seksi
-// ============================================================
 @Composable
 fun ProfileCard(
     title: String,
@@ -340,9 +306,6 @@ fun ProfileCard(
     }
 }
 
-// ============================================================
-// HALAMAN UTAMA: ProfileScreen
-// ============================================================
 @Composable
 fun ProfileScreen() {
     val profile = ProfileData(
@@ -352,7 +315,7 @@ fun ProfileScreen() {
         email = "pradana.123140063@student.itera.ac.id",
         phone = "+62 853-8312-2030",
         location = "Bandar Lamapung, Indonesia",
-        website = "github.com/budisantoso"
+        website = "github.com/PradanaFigo"
     )
 
     var isFollowing by remember { mutableStateOf(false) }
@@ -370,14 +333,12 @@ fun ProfileScreen() {
             .background(AppColors.Background)
             .verticalScroll(scrollState)
     ) {
-        // 1. Header abu-abu
         ProfileHeader(
             name  = profile.name,
             title = profile.title,
             bio   = profile.bio
         )
 
-        // 2. Stat card melayang
         Card(
             modifier = Modifier
                 .fillMaxWidth()
@@ -407,7 +368,6 @@ fun ProfileScreen() {
             }
         }
 
-        // 3. Tombol Follow (tanpa Message)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -440,7 +400,6 @@ fun ProfileScreen() {
 
         Spacer(modifier = Modifier.height(4.dp))
 
-        // 4. Card Informasi Kontak
         ProfileCard(title = "Informasi Kontak") {
             InfoItem(
                 icon     = Icons.Filled.Email,
@@ -468,7 +427,6 @@ fun ProfileScreen() {
             )
         }
 
-        // 5. Card Keahlian
         ProfileCard(title = "Keahlian") {
             skills.forEach { skill ->
                 InfoItem(
